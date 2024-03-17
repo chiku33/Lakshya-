@@ -1,0 +1,20 @@
+# app.py (main Flask application)
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+# Define endpoints for booking a taxi
+@app.route('/book_taxi', methods=['POST'])
+def book_taxi():
+    # Parse request data
+    data = request.json
+    user_id = data.get('user_id')
+    pickup_location = data.get('pickup_location')
+    destination = data.get('destination')
+    # Process booking logic
+    # Save booking details to database
+    # Return success response
+    return jsonify({'message': 'Taxi booked successfully'}), 200
+
+if __name__ == '__main__':
+    app.run(debug=True)
